@@ -30,9 +30,12 @@ $FRAGEN = [
 $MODULE = [1=>'Der Preis von Geld',2=>'Bonds und Repos',3=>'Der Dollar',4=>'Inflation',5=>'Makrodaten'];
 
 /* ---------- Daten lesen ---------- */
-$datei = __DIR__ . '/daten/ereignisse.log.php';
+$kandidaten = [__DIR__ . '/daten/ereignisse.log.php', __DIR__ . '/ereignisse.log.php',
+               rtrim(sys_get_temp_dir(),'/') . '/valuex-quiz/ereignisse.log.php'];
+$datei = null;
+foreach ($kandidaten as $kd) { if (file_exists($kd)) { $datei = $kd; break; } }
 $zeilen = [];
-if (file_exists($datei)) {
+if ($datei && file_exists($datei)) {
     $fh = fopen($datei, 'r');
     if ($fh) { fgets($fh); while (($l = fgets($fh)) !== false) { $j = json_decode($l, true); if (is_array($j)) $zeilen[] = $j; } fclose($fh); }
 }
