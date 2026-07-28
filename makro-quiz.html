@@ -4,275 +4,267 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Der Makrotest. Zwölf Fragen. Dann weisst du, wo du stehst.</title>
-<meta name="description" content="Zwölf Fragen zu Zinsen, Dollar und Inflation. Nach jeder Frage sagst du, wie sicher du dir bist. Am Ende siehst du beides.">
+<meta name="description" content="Zwölf Fragen zu Zinsen, Dollar und Inflation. Nach jeder Frage sagst du, wie sicher du bist. Am Ende siehst du beides.">
 <meta name="robots" content="noindex">
 <meta property="og:title" content="Der Makrotest">
 <meta property="og:description" content="Zwölf Fragen. Am Ende weisst du, wie weit dein Gefühl von deinem Wissen entfernt ist.">
 <meta property="og:type" content="website">
+<meta name="theme-color" content="#ffffff">
 
 <style>
-/* =========================================================
+/* ==========================================================
    ValueX. Der Makrotest
    Schwarz auf Weiss. Eine Datei. Keine Abhängigkeiten.
-   ========================================================= */
+   ========================================================== */
 
 :root{
-  --paper:#ffffff;
-  --paper-2:#fafaf9;
+  --paper:#fff;
+  --paper2:#f7f7f5;
   --ink:#0a0a0a;
-  --ink-2:#3d3d3d;
-  --ink-3:#767676;
+  --ink2:#3a3a3a;
+  --ink3:#767674;
   --rule:#dcdcda;
-  --rule-2:#efefed;
+  --rule2:#ededeb;
 
-  --font-d:Georgia,"Iowan Old Style","Palatino Linotype",Palatino,"Times New Roman",serif;
-  --font-b:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-  --font-m:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+  --fd:Georgia,"Iowan Old Style","Palatino Linotype",Palatino,"Times New Roman",serif;
+  --fb:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --fm:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
 
   --pad:clamp(1.25rem,5vw,3rem);
+  --tap:52px;
+  --z-bar:20;
+  --z-cta:30;
 }
 
 *,*::before,*::after{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
 
 body{
-  margin:0;
-  background:var(--paper);
-  color:var(--ink);
-  font-family:var(--font-b);
-  font-size:clamp(15.5px,0.95rem + 0.3vw,17.5px);
-  line-height:1.6;
-  -webkit-font-smoothing:antialiased;
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--fb);
+  font-size:clamp(16px,0.95rem+0.3vw,17.5px);
+  line-height:1.6;-webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
 }
 
-.shell{max-width:44rem;margin:0 auto;padding:0 var(--pad) clamp(3rem,10vw,6rem)}
+.shell{max-width:42rem;margin:0 auto;padding:0 var(--pad) clamp(3rem,10vw,5rem)}
+
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+
+.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 
 /* ---------- Kopf ---------- */
-.masthead{
+.top{
   display:flex;align-items:center;justify-content:space-between;gap:1rem;
-  padding:clamp(1.1rem,4vw,1.7rem) 0;
-  border-bottom:2px solid var(--ink);
-  margin-bottom:clamp(2.2rem,8vw,4rem);
+  padding:1.1rem 0;border-bottom:2px solid var(--ink);margin-bottom:clamp(2rem,7vw,3.4rem);
 }
-.brand{font-family:var(--font-d);font-size:1.1rem;letter-spacing:-.01em}
+.brand{font-family:var(--fd);font-size:1.08rem}
 .brand b{font-weight:700}
-.brand i{font-style:normal;color:var(--ink-3)}
-.masthead .tag{
-  font-family:var(--font-m);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;
-  color:var(--ink-3);white-space:nowrap;
-}
+.brand i{font-style:normal;color:var(--ink3)}
+.top .tag{font-family:var(--fm);font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink3)}
 
-/* ---------- Typo ---------- */
-.kicker{
-  font-family:var(--font-m);font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;
-  color:var(--ink-3);margin:0 0 1.2rem;padding-bottom:.7rem;border-bottom:1px solid var(--rule);
-}
-
-h1{
-  font-family:var(--font-d);font-weight:400;
-  font-size:clamp(2rem,1.3rem + 3.6vw,3.5rem);
-  line-height:1.08;letter-spacing:-.022em;margin:0 0 1.4rem;
-  text-wrap:balance;
-}
-h1 .thin{color:var(--ink-3)}
-
-.lede{
-  font-size:clamp(1.05rem,1rem + .35vw,1.24rem);
-  line-height:1.55;color:var(--ink-2);max-width:34ch;margin:0 0 2.2rem;
-}
+/* ---------- Startseite ---------- */
+.kick{font-family:var(--fm);font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;color:var(--ink3);margin:0 0 1.1rem;padding-bottom:.65rem;border-bottom:1px solid var(--rule)}
+h1{font-family:var(--fd);font-weight:400;font-size:clamp(2rem,1.3rem+3.6vw,3.4rem);line-height:1.08;letter-spacing:-.022em;margin:0 0 1.3rem;text-wrap:balance}
+h1 .thin{color:var(--ink3)}
+.lede{font-size:clamp(1.05rem,1rem+.35vw,1.2rem);line-height:1.55;color:var(--ink2);max-width:34ch;margin:0 0 2rem}
 .lede b{color:var(--ink);font-weight:600}
 
-/* ---------- Datenzeile ---------- */
-.facts{
-  display:grid;grid-template-columns:repeat(2,1fr);
-  border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);
-  margin:0 0 2.4rem;
-}
+.facts{display:grid;grid-template-columns:repeat(2,1fr);border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);margin:0 0 2rem}
 @media(min-width:32rem){.facts{grid-template-columns:repeat(4,1fr)}}
-.fact{padding:.95rem 0;border-right:1px solid var(--rule)}
+.fact{padding:.9rem 0;border-right:1px solid var(--rule)}
 .fact:nth-child(2n){border-right:0}
 @media(min-width:32rem){.fact{border-right:1px solid var(--rule)}.fact:nth-child(2n){border-right:1px solid var(--rule)}.fact:last-child{border-right:0}}
-.fact dt{font-family:var(--font-m);font-size:.56rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3);margin:0 0 .3rem}
-.fact dd{margin:0;font-family:var(--font-d);font-size:1.35rem;line-height:1;font-variant-numeric:tabular-nums}
+.fact dt{font-family:var(--fm);font-size:.54rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3);margin:0 0 .3rem}
+.fact dd{margin:0;font-family:var(--fd);font-size:1.3rem;line-height:1;font-variant-numeric:tabular-nums}
 
-/* ---------- Merksatz ---------- */
-.pull{
-  border-left:3px solid var(--ink);padding:.2rem 0 .2rem 1.15rem;
-  margin:0 0 2.2rem;font-size:1rem;line-height:1.55;color:var(--ink-2);
-}
+.pull{border-left:3px solid var(--ink);padding:.15rem 0 .15rem 1.1rem;margin:0 0 2rem;font-size:1rem;line-height:1.55;color:var(--ink2)}
 .pull b{color:var(--ink);font-weight:700}
 
 /* ---------- Buttons ---------- */
 .btn{
-  appearance:none;cursor:pointer;font:inherit;font-weight:600;
-  display:inline-flex;align-items:center;justify-content:center;gap:.55rem;
-  padding:1.05rem 2rem;min-height:52px;
+  display:inline-flex;align-items:center;justify-content:center;gap:.6rem;
+  padding:1rem 1.9rem;min-height:var(--tap);font-weight:600;
   background:var(--ink);color:var(--paper);border:2px solid var(--ink);border-radius:0;
-  transition:background .15s ease,color .15s ease;
-  text-decoration:none;
+  transition:background .15s ease,color .15s ease;text-decoration:none;
 }
 .btn:hover{background:var(--paper);color:var(--ink)}
 .btn-lg{width:100%;font-size:1.02rem}
-@media(min-width:34rem){.btn-lg{width:auto;min-width:18rem}}
+@media(min-width:34rem){.btn-lg{width:auto;min-width:17rem}}
 .btn-ghost{background:var(--paper);color:var(--ink)}
 .btn-ghost:hover{background:var(--ink);color:var(--paper)}
-:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.btn-sm{padding:.6rem 1.1rem;min-height:44px;font-size:.86rem;border-width:1px}
+.hint{font-family:var(--fm);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);margin-top:.9rem}
+.hint kbd{font-family:var(--fm);border:1px solid var(--rule);padding:.1rem .3rem;margin:0 .1rem}
+@media(hover:none){.hint.kb{display:none}}
 
-/* ---------- Fortschritt ---------- */
-.prog{margin-bottom:clamp(1.8rem,6vw,2.6rem)}
-.prog-meta{
-  display:flex;justify-content:space-between;align-items:baseline;
-  font-family:var(--font-m);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;
-  color:var(--ink-3);margin-bottom:.6rem;
+/* ---------- Fortschrittsleiste ---------- */
+.bar{
+  position:sticky;top:0;z-index:var(--z-bar);background:var(--paper);
+  padding:.75rem 0 .7rem;border-bottom:1px solid var(--rule);
+  margin:0 0 clamp(1.6rem,5vw,2.4rem);
 }
-.prog-meta b{color:var(--ink);font-weight:500}
-.track{height:2px;background:var(--rule)}
-.fill{height:100%;width:0;background:var(--ink);transition:width .4s cubic-bezier(.4,0,.2,1)}
+.bar-row{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:.6rem}
+.bar-n{font-family:var(--fm);font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink3)}
+.bar-n b{color:var(--ink);font-family:var(--fd);font-size:1.05rem;letter-spacing:0;font-variant-numeric:tabular-nums}
+.bar-sc{font-family:var(--fm);font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink3)}
+.bar-sc b{color:var(--ink);font-family:var(--fd);font-size:1.05rem;letter-spacing:0;font-variant-numeric:tabular-nums}
+.dots{display:flex;gap:4px}
+.dots i{flex:1;height:4px;background:var(--rule);transition:background .25s ease}
+.dots i.done{background:var(--ink)}
+.dots i.now{background:var(--ink3)}
 
 /* ---------- Frage ---------- */
-.q-topic{
-  font-family:var(--font-m);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;
-  color:var(--ink-3);margin:0 0 .8rem;
-}
-.q-text{
-  font-family:var(--font-d);font-weight:400;
-  font-size:clamp(1.3rem,1.1rem + 1.2vw,1.85rem);
-  line-height:1.28;letter-spacing:-.015em;margin:0 0 1.8rem;text-wrap:pretty;
-}
+.qwrap{animation:slide .28s cubic-bezier(.2,.7,.3,1) both}
+@keyframes slide{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.q-top{font-family:var(--fm);font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink3);margin:0 0 .75rem}
+.q-txt{font-family:var(--fd);font-weight:400;font-size:clamp(1.32rem,1.1rem+1.2vw,1.8rem);line-height:1.28;letter-spacing:-.015em;margin:0 0 1.5rem;text-wrap:pretty}
 
-.options{display:grid;gap:-1px;margin-bottom:1.9rem;border-top:1px solid var(--ink)}
+.opts{border-top:1px solid var(--ink);margin:0 0 1.6rem}
 .opt{
-  display:flex;gap:1rem;align-items:flex-start;text-align:left;width:100%;
+  display:flex;gap:.95rem;align-items:flex-start;text-align:left;width:100%;
   background:var(--paper);border:0;border-bottom:1px solid var(--rule);
-  padding:1.05rem .2rem;color:var(--ink);font:inherit;font-size:.97rem;line-height:1.45;
-  cursor:pointer;transition:background .13s ease,padding-left .13s ease;min-height:56px;
+  padding:1rem .25rem;font-size:.98rem;line-height:1.45;min-height:56px;
+  transition:background .14s ease,padding-left .14s ease;
 }
 .opt:last-child{border-bottom:1px solid var(--ink)}
-.opt:hover:not(:disabled){background:var(--paper-2);padding-left:.7rem}
-.opt .key{
-  flex:0 0 auto;width:1.5rem;height:1.5rem;display:grid;place-items:center;
-  border:1px solid var(--ink);font-family:var(--font-m);font-size:.68rem;margin-top:.08rem;
-  transition:all .13s ease;
+.opt:hover:not([disabled]){background:var(--paper2);padding-left:.6rem}
+.opt .k{
+  flex:0 0 auto;width:1.55rem;height:1.55rem;display:grid;place-items:center;
+  border:1px solid var(--ink);font-family:var(--fm);font-size:.66rem;margin-top:.06rem;
+  transition:background .14s ease,color .14s ease;
 }
-.opt[aria-pressed="true"]{background:var(--ink);color:var(--paper);padding-left:.7rem}
-.opt[aria-pressed="true"] .key{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.opt[aria-pressed="true"]{background:var(--ink);color:var(--paper);padding-left:.6rem}
+.opt[aria-pressed="true"] .k{background:var(--paper);color:var(--ink)}
+.opt[disabled]{cursor:default}
+/* Auflösung */
+.opt.is-right{background:var(--ink);color:var(--paper);padding-left:.6rem}
+.opt.is-right .k{background:var(--paper);color:var(--ink)}
+.opt.is-wrong{opacity:.55}
+.opt.is-wrong .txt{text-decoration:line-through}
+.opt.is-mute{opacity:.4}
 
 /* ---------- Sicherheit ---------- */
-.conf{padding-top:1.6rem;border-top:1px solid var(--rule);animation:rise .3s ease both}
-@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-.conf-label{font-family:var(--font-m);font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3);margin:0 0 .9rem}
-.conf-opts{display:grid;gap:.5rem}
-@media(min-width:30rem){.conf-opts{grid-template-columns:repeat(3,1fr)}}
-.conf-btn{
-  background:var(--paper);border:1px solid var(--ink);border-radius:0;
-  padding:.85rem .6rem;color:var(--ink);font:inherit;cursor:pointer;text-align:center;
-  min-height:54px;transition:background .13s ease,color .13s ease;
-}
-.conf-btn:hover{background:var(--ink);color:var(--paper)}
-.conf-btn b{display:block;font-size:.94rem;font-weight:600}
-.conf-btn span{font-family:var(--font-m);font-size:.58rem;letter-spacing:.1em;color:var(--ink-3);text-transform:uppercase}
-.conf-btn:hover span{color:var(--paper)}
+.conf{padding-top:1.4rem;border-top:1px solid var(--rule);animation:slide .26s ease both}
+.conf p{font-family:var(--fm);font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3);margin:0 0 .85rem}
+.conf-row{display:grid;gap:.5rem}
+@media(min-width:30rem){.conf-row{grid-template-columns:repeat(3,1fr)}}
+.cbtn{background:var(--paper);border:1px solid var(--ink);padding:.8rem .55rem;text-align:center;min-height:54px;transition:background .14s ease,color .14s ease}
+.cbtn:hover{background:var(--ink);color:var(--paper)}
+.cbtn b{display:block;font-size:.93rem;font-weight:600}
+.cbtn span{font-family:var(--fm);font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3)}
+.cbtn:hover span{color:var(--paper)}
+
+/* ---------- Auflösung ---------- */
+.fb{border:2px solid var(--ink);padding:1.15rem 1.2rem;margin:0 0 1.4rem;animation:slide .26s ease both}
+.fb-h{display:flex;align-items:center;gap:.6rem;margin:0 0 .6rem}
+.fb-m{width:1.5rem;height:1.5rem;display:grid;place-items:center;border:1px solid var(--ink);font-family:var(--fm);font-size:.85rem;font-weight:700;flex:0 0 auto}
+.fb.ok .fb-m{background:var(--ink);color:var(--paper)}
+.fb-t{font-family:var(--fd);font-size:1.1rem}
+.fb-sting{font-family:var(--fm);font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);margin-left:auto;text-align:right}
+.fb-w{margin:0;font-size:.95rem;line-height:1.55;color:var(--ink2)}
+
+.nav{display:flex;align-items:center;gap:.7rem;flex-wrap:wrap}
+.nav .sp{flex:1}
 
 /* ---------- Ergebnis ---------- */
-.verdict{padding:clamp(1rem,4vw,2rem) 0 clamp(1.6rem,6vw,2.6rem);border-bottom:1px solid var(--ink)}
-.score-row{display:flex;align-items:center;gap:clamp(1.2rem,5vw,2.4rem);margin-bottom:1.8rem;flex-wrap:wrap}
-.ring{width:clamp(104px,26vw,132px);height:clamp(104px,26vw,132px);flex:0 0 auto}
-.ring text.n{font-family:var(--font-d);font-size:42px;fill:var(--ink);font-variant-numeric:tabular-nums}
-.ring text.d{font-family:var(--font-m);font-size:10px;fill:var(--ink-3);letter-spacing:.2em}
-.verdict h2{font-family:var(--font-d);font-weight:400;font-size:clamp(1.5rem,1.2rem + 1.9vw,2.4rem);line-height:1.14;letter-spacing:-.02em;margin:0;flex:1 1 12rem;text-wrap:balance}
-.verdict p{color:var(--ink-2);max-width:40ch;margin:0;font-size:1.02rem}
+.res-head{padding:.5rem 0 clamp(1.6rem,6vw,2.4rem);border-bottom:1px solid var(--ink)}
+.sc-row{display:flex;align-items:center;gap:clamp(1.1rem,5vw,2.2rem);flex-wrap:wrap;margin-bottom:1.5rem}
+.ring{width:clamp(102px,26vw,128px);height:clamp(102px,26vw,128px);flex:0 0 auto}
+.ring text.n{font-family:var(--fd);font-size:40px;fill:var(--ink);font-variant-numeric:tabular-nums}
+.ring text.d{font-family:var(--fm);font-size:9.5px;fill:var(--ink3);letter-spacing:.2em}
+.res-head h2{font-family:var(--fd);font-weight:400;font-size:clamp(1.5rem,1.2rem+1.9vw,2.3rem);line-height:1.14;letter-spacing:-.02em;margin:0;flex:1 1 11rem;text-wrap:balance}
+.res-head p{color:var(--ink2);max-width:40ch;margin:0}
 
-/* Kalibrierung */
-.calib{padding:clamp(1.8rem,6vw,2.8rem) 0;border-bottom:1px solid var(--ink)}
-.cbars{margin:1.4rem 0 1.8rem}
-.cbar{margin:0 0 1.3rem}
-.cbar dt{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;margin-bottom:.45rem}
-.cbar dt span{font-family:var(--font-m);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
-.cbar dt b{font-family:var(--font-d);font-size:1.3rem;font-variant-numeric:tabular-nums;font-weight:400}
+.sect{padding:clamp(1.8rem,6vw,2.6rem) 0;border-bottom:1px solid var(--ink)}
+.cbar{margin:0 0 1.2rem}
+.cbar dt{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;margin-bottom:.42rem}
+.cbar dt span{font-family:var(--fm);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3)}
+.cbar dt b{font-family:var(--fd);font-size:1.28rem;font-weight:400;font-variant-numeric:tabular-nums}
 .cbar dd{margin:0;height:14px;border:1px solid var(--ink)}
-.cbar dd i{display:block;height:100%;width:0;transition:width .85s cubic-bezier(.3,.8,.3,1)}
+.cbar dd i{display:block;height:100%;width:0;transition:width .8s cubic-bezier(.3,.8,.3,1)}
 .cbar dd i.self{background:repeating-linear-gradient(45deg,var(--ink) 0 2px,transparent 2px 5px)}
 .cbar dd i.real{background:var(--ink)}
+.gapbox{border:2px solid var(--ink);padding:1.25rem 1.3rem;text-align:center;margin-top:1.5rem}
+.gapbox b{font-family:var(--fd);font-size:clamp(1.9rem,1.4rem+2.4vw,2.8rem);display:block;line-height:1;margin-bottom:.5rem;font-weight:400;font-variant-numeric:tabular-nums}
+.gapbox span{font-size:.95rem;color:var(--ink2);display:block;max-width:38ch;margin:0 auto}
 
-.gapbox{border:2px solid var(--ink);padding:1.3rem 1.4rem;text-align:center}
-.gapbox b{font-family:var(--font-d);font-size:clamp(1.9rem,1.4rem + 2.4vw,2.9rem);display:block;line-height:1;margin-bottom:.55rem;font-variant-numeric:tabular-nums;font-weight:400}
-.gapbox span{font-size:.96rem;color:var(--ink-2);display:block;max-width:38ch;margin:0 auto}
-
-/* Themen */
-.sect{padding:clamp(1.8rem,6vw,2.8rem) 0;border-bottom:1px solid var(--ink)}
-.sect>.kicker{border-bottom:0;padding-bottom:0;margin-bottom:1.2rem}
 .topics{border-top:1px solid var(--rule)}
-.topic{display:flex;align-items:baseline;gap:1rem;padding:.85rem 0 .85rem .8rem;border-bottom:1px solid var(--rule);border-left:3px solid var(--rule)}
+.topic{display:flex;align-items:baseline;gap:.9rem;padding:.8rem 0 .8rem .75rem;border-bottom:1px solid var(--rule);border-left:3px solid var(--rule2)}
 .topic.weak{border-left-color:var(--ink)}
-.topic .nm{font-weight:600;font-size:.97rem;flex:1}
-.topic .md{font-family:var(--font-m);font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);flex:0 0 auto}
-.topic .vl{font-family:var(--font-d);font-size:1.15rem;font-variant-numeric:tabular-nums;flex:0 0 auto}
+.topic .md{font-family:var(--fm);font-size:.54rem;letter-spacing:.14em;color:var(--ink3);flex:0 0 auto}
+.topic .nm{font-weight:600;font-size:.96rem;flex:1}
+.topic .vl{font-family:var(--fd);font-size:1.12rem;font-variant-numeric:tabular-nums;flex:0 0 auto}
 .topic.weak .vl{font-weight:700}
 
-/* Auflösung */
 .rev{border-bottom:1px solid var(--rule)}
 .rev:first-child{border-top:1px solid var(--rule)}
-.rev>summary{
-  cursor:pointer;padding:.95rem 0;display:flex;gap:.9rem;align-items:flex-start;
-  list-style:none;font-size:.96rem;line-height:1.45;
-}
+.rev>summary{cursor:pointer;padding:.9rem 0;display:flex;gap:.85rem;align-items:flex-start;list-style:none;font-size:.95rem;line-height:1.45;min-height:48px}
 .rev>summary::-webkit-details-marker{display:none}
-.rev .mk{flex:0 0 auto;width:1.35rem;height:1.35rem;display:grid;place-items:center;font-family:var(--font-m);font-size:.78rem;font-weight:700;margin-top:.04rem;border:1px solid var(--ink)}
+.rev .mk{flex:0 0 auto;width:1.3rem;height:1.3rem;display:grid;place-items:center;font-family:var(--fm);font-size:.76rem;font-weight:700;border:1px solid var(--ink);margin-top:.04rem}
 .rev.right .mk{background:var(--ink);color:var(--paper)}
-.rev.wrong .mk{background:var(--paper);color:var(--ink)}
-.rev-body{padding:0 0 1.3rem 2.25rem}
-.rev-body .ln{margin:0 0 .55rem;font-size:.9rem;color:var(--ink-3)}
-.rev-body .ln.you s{color:var(--ink-3)}
-.rev-body .ln.sol b{color:var(--ink);font-weight:700}
-.rev-body .why{margin:.8rem 0 0;font-size:.95rem;color:var(--ink-2);line-height:1.55}
+.rev-b{padding:0 0 1.2rem 2.15rem}
+.rev-b .ln{margin:0 0 .5rem;font-size:.88rem;color:var(--ink3)}
+.rev-b .ln b{color:var(--ink);font-weight:700}
+.rev-b .why{margin:.7rem 0 0;font-size:.94rem;color:var(--ink2);line-height:1.55}
 
-/* ---------- Pitch ---------- */
-.pitch{padding:clamp(2.2rem,8vw,3.6rem) 0 0}
-.pitch h2{font-family:var(--font-d);font-weight:400;font-size:clamp(1.6rem,1.25rem + 2.1vw,2.6rem);line-height:1.12;letter-spacing:-.022em;margin:0 0 1.2rem;text-wrap:balance}
-.mods{border-top:1px solid var(--ink);margin:1.8rem 0}
-.mod{display:flex;gap:.9rem;align-items:baseline;padding:.8rem .8rem .8rem 0;border-bottom:1px solid var(--rule);border-left:3px solid transparent;font-size:.95rem}
-.mod .n{font-family:var(--font-m);font-size:.58rem;letter-spacing:.14em;color:var(--ink-3);flex:0 0 auto}
-.mod.hit{border-left-color:var(--ink);padding-left:.8rem;background:var(--paper-2)}
+/* Pitch */
+.pitch{padding:clamp(2rem,7vw,3.2rem) 0 0}
+.pitch h2{font-family:var(--fd);font-weight:400;font-size:clamp(1.55rem,1.25rem+2vw,2.4rem);line-height:1.13;letter-spacing:-.022em;margin:0 0 1.1rem;text-wrap:balance}
+.mods{border-top:1px solid var(--ink);margin:1.6rem 0}
+.mod{display:flex;gap:.85rem;align-items:baseline;padding:.78rem .75rem .78rem 0;border-bottom:1px solid var(--rule);border-left:3px solid transparent;font-size:.94rem}
+.mod .n{font-family:var(--fm);font-size:.56rem;letter-spacing:.14em;color:var(--ink3);flex:0 0 auto}
+.mod.hit{border-left-color:var(--ink);padding-left:.75rem;background:var(--paper2)}
 .mod.hit .n{color:var(--ink)}
-.mod .fl{margin-left:auto;font-family:var(--font-m);font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;flex:0 0 auto;font-weight:700}
+.mod .fl{margin-left:auto;font-family:var(--fm);font-size:.54rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;flex:0 0 auto}
+.price{display:flex;align-items:baseline;gap:.6rem;flex-wrap:wrap;padding:1.3rem 0;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);margin:0 0 1.5rem}
+.price .amt{font-family:var(--fd);font-size:clamp(2.1rem,1.6rem+2.4vw,2.9rem);line-height:1;font-variant-numeric:tabular-nums}
+.price .cur{font-family:var(--fm);font-size:.66rem;letter-spacing:.18em;color:var(--ink3)}
+.price .mt{font-size:.85rem;color:var(--ink3);margin-left:auto}
+.trust{display:flex;flex-wrap:wrap;gap:.4rem 1.4rem;margin-top:1.1rem;font-family:var(--fm);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3)}
 
-.price{display:flex;align-items:baseline;gap:.6rem;flex-wrap:wrap;padding:1.4rem 0;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);margin:0 0 1.6rem}
-.price .amt{font-family:var(--font-d);font-size:clamp(2.1rem,1.6rem + 2.4vw,3rem);line-height:1;font-variant-numeric:tabular-nums}
-.price .cur{font-family:var(--font-m);font-size:.68rem;letter-spacing:.18em;color:var(--ink-3)}
-.price .mt{font-size:.86rem;color:var(--ink-3);margin-left:auto}
+/* Klebeleiste unten */
+.sticky{
+  position:fixed;left:0;right:0;bottom:0;z-index:var(--z-cta);
+  background:var(--paper);border-top:2px solid var(--ink);
+  padding:.7rem var(--pad) calc(.7rem + env(safe-area-inset-bottom));
+  display:none;align-items:center;gap:.9rem;
+  transform:translateY(105%);transition:transform .3s cubic-bezier(.2,.7,.3,1);
+}
+.sticky.on{display:flex;transform:none}
+.sticky .lbl{font-family:var(--fm);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);line-height:1.3}
+.sticky .lbl b{display:block;font-family:var(--fd);font-size:1.15rem;letter-spacing:0;text-transform:none;color:var(--ink)}
+.sticky .btn{margin-left:auto;flex:0 0 auto}
+@media(max-width:24rem){.sticky .lbl{display:none}.sticky .btn{margin-left:0;width:100%}}
 
-.trust{display:flex;flex-wrap:wrap;gap:.4rem 1.5rem;margin-top:1.2rem;font-family:var(--font-m);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
+.foot{margin-top:2.4rem;padding-top:1.2rem;border-top:1px solid var(--rule);font-size:.75rem;color:var(--ink3);line-height:1.55}
 
-.foot{margin-top:clamp(2.4rem,8vw,4rem);padding-top:1.4rem;border-top:1px solid var(--rule);font-size:.76rem;color:var(--ink-3);line-height:1.55}
-
-/* ---------- Ansichten ---------- */
-.view{display:none;animation:fade .3s ease both}
+.view{display:none}
 .view.on{display:block}
-@keyframes fade{from{opacity:0}to{opacity:1}}
 
-@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+}
 </style>
 </head>
 <body>
+
 <div class="shell">
 
-  <header class="masthead">
+  <header class="top">
     <div class="brand"><b>ValueX</b> <i>/ Makro</i></div>
     <div class="tag">Wissenstest</div>
   </header>
 
-  <!-- ===== START ===== -->
+  <!-- ============ START ============ -->
   <section class="view on" id="v-start">
-    <p class="kicker">Selbsttest · 12 Fragen</p>
-
+    <p class="kick">Selbsttest · 12 Fragen</p>
     <h1>Du liest jeden Tag über Zinsen, Dollar und Inflation.<br>
-    <span class="thin">Zwölf Fragen zeigen dir, was davon hängen geblieben ist.</span></h1>
-
-    <p class="lede">
-      Keine Fangfragen. Jede Frage behandelt etwas, das den Bitcoinpreis bewegt.
-      Wenn du das Raster hast, kommst du sauber durch. Wenn nicht, merkst du es hier.
-      <b>Besser hier als im Trade.</b>
-    </p>
+      <span class="thin">Zwölf Fragen zeigen dir, was davon hängen geblieben ist.</span></h1>
+    <p class="lede">Keine Fangfragen. Jede Frage behandelt etwas, das den Bitcoinpreis bewegt.
+      Nach jeder Frage siehst du sofort, ob du richtig lagst. <b>Besser hier als im Trade.</b></p>
 
     <dl class="facts">
       <div class="fact"><dt>Fragen</dt><dd>12</dd></div>
@@ -281,45 +273,67 @@ h1 .thin{color:var(--ink-3)}
       <div class="fact"><dt>Anmeldung</dt><dd>Keine</dd></div>
     </dl>
 
-    <p class="pull">
-      <b>Der Test misst zwei Dinge.</b> Nach jeder Frage sagst du, wie sicher du dir bist.
+    <p class="pull"><b>Der Test misst zwei Dinge.</b> Nach jeder Frage sagst du, wie sicher du bist.
       Am Ende stehen beide Zahlen nebeneinander. Was du weisst. Und was du glaubst zu wissen.
-      Die zweite tut mehr weh.
-    </p>
+      Die zweite tut mehr weh.</p>
 
     <button class="btn btn-lg" id="start">Test starten</button>
+    <p class="hint kb">Tastatur: <kbd>1</kbd> bis <kbd>4</kbd> wählen · <kbd>Enter</kbd> weiter · <kbd>←</kbd> zurück</p>
   </section>
 
-  <!-- ===== QUIZ ===== -->
+  <!-- ============ QUIZ ============ -->
   <section class="view" id="v-quiz">
-    <div class="prog">
-      <div class="prog-meta"><span>Frage <b id="qnum">1</b> / 12</span><span id="qmod"></span></div>
-      <div class="track"><div class="fill" id="fill"></div></div>
+    <div class="bar">
+      <div class="bar-row">
+        <span class="bar-n">Frage <b id="qn">1</b> von 12</span>
+        <span class="bar-sc"><b id="sc">0</b> richtig</span>
+      </div>
+      <div class="dots" id="dots" aria-hidden="true"></div>
     </div>
-    <p class="q-topic" id="qtopic"></p>
-    <h2 class="q-text" id="qtext"></h2>
-    <div class="options" id="opts"></div>
-    <div class="conf" id="conf" hidden>
-      <p class="conf-label">Wie sicher bist du?</p>
-      <div class="conf-opts">
-        <button class="conf-btn" data-c="25"><b>Geraten</b><span>Bauchgefühl</span></button>
-        <button class="conf-btn" data-c="70"><b>Ziemlich sicher</b><span>Denke schon</span></button>
-        <button class="conf-btn" data-c="95"><b>Todsicher</b><span>Weiss ich</span></button>
+
+    <div class="qwrap" id="qwrap">
+      <p class="q-top" id="qtop"></p>
+      <h2 class="q-txt" id="qtxt"></h2>
+      <div class="opts" id="opts" role="group" aria-labelledby="qtxt"></div>
+
+      <div class="conf" id="conf" hidden>
+        <p>Wie sicher bist du?</p>
+        <div class="conf-row">
+          <button class="cbtn" data-c="25"><b>Geraten</b><span>Bauchgefühl</span></button>
+          <button class="cbtn" data-c="70"><b>Ziemlich sicher</b><span>Denke schon</span></button>
+          <button class="cbtn" data-c="95"><b>Todsicher</b><span>Weiss ich</span></button>
+        </div>
+      </div>
+
+      <div id="fbwrap" hidden>
+        <div class="fb" id="fb">
+          <div class="fb-h">
+            <span class="fb-m" id="fbm">✓</span>
+            <span class="fb-t" id="fbt"></span>
+            <span class="fb-sting" id="fbs"></span>
+          </div>
+          <p class="fb-w" id="fbw"></p>
+        </div>
+        <div class="nav">
+          <button class="btn btn-ghost btn-sm" id="back">Zurück</button>
+          <span class="sp"></span>
+          <button class="btn" id="next">Weiter</button>
+        </div>
       </div>
     </div>
+    <p class="sr" aria-live="polite" id="live"></p>
   </section>
 
-  <!-- ===== ERGEBNIS ===== -->
+  <!-- ============ ERGEBNIS ============ -->
   <section class="view" id="v-result">
-
-    <div class="verdict">
-      <div class="score-row">
+    <div class="res-head">
+      <div class="sc-row">
         <svg class="ring" viewBox="0 0 120 120" role="img" aria-label="Ergebnis">
           <circle cx="60" cy="60" r="52" fill="none" stroke="#dcdcda" stroke-width="6"/>
           <circle id="ring" cx="60" cy="60" r="52" fill="none" stroke="#0a0a0a" stroke-width="6"
                   stroke-dasharray="326.7" stroke-dashoffset="326.7" transform="rotate(-90 60 60)"
-                  style="transition:stroke-dashoffset 1s cubic-bezier(.3,.8,.3,1)"/>
-          <text class="n" x="60" y="64" text-anchor="middle" id="ringnum">0/12</text>
+                  style="transition:stroke-dashoffset .9s cubic-bezier(.3,.8,.3,1)"/>
+          <text class="n" x="60" y="64" text-anchor="middle" id="rn">0/12</text>
           <text class="d" x="60" y="82" text-anchor="middle">RICHTIG</text>
         </svg>
         <h2 id="vh"></h2>
@@ -327,58 +341,47 @@ h1 .thin{color:var(--ink-3)}
       <p id="vp"></p>
     </div>
 
-    <div class="calib">
-      <p class="kicker" style="border:0;padding:0">Gefühl gegen Realität</p>
-      <div class="cbars">
-        <dl class="cbar">
-          <dt><span>So sicher warst du</span><b id="self-n">0 %</b></dt>
-          <dd><i class="self" id="self-bar"></i></dd>
-        </dl>
-        <dl class="cbar">
-          <dt><span>So oft lagst du richtig</span><b id="real-n">0 %</b></dt>
-          <dd><i class="real" id="real-bar"></i></dd>
-        </dl>
-      </div>
-      <div class="gapbox"><b id="gap-n">0</b><span id="gap-t"></span></div>
+    <div class="sect">
+      <p class="kick" style="border:0;padding:0">Gefühl gegen Realität</p>
+      <dl class="cbar"><dt><span>So sicher warst du</span><b id="sn">0 %</b></dt><dd><i class="self" id="sb"></i></dd></dl>
+      <dl class="cbar"><dt><span>So oft lagst du richtig</span><b id="rnn">0 %</b></dt><dd><i class="real" id="rb"></i></dd></dl>
+      <div class="gapbox"><b id="gn">0</b><span id="gt"></span></div>
     </div>
 
     <div class="sect">
-      <p class="kicker">Wo es fehlt</p>
+      <p class="kick">Wo es fehlt</p>
       <div class="topics" id="topics"></div>
     </div>
 
     <div class="sect">
-      <p class="kicker">Auflösung, antippen</p>
+      <p class="kick">Alle Fragen, antippen</p>
       <div id="review"></div>
     </div>
 
     <div class="pitch">
-      <p class="kicker">Und jetzt</p>
+      <p class="kick">Und jetzt</p>
       <h2 id="ph"></h2>
       <p class="lede" id="pp"></p>
-
       <div class="mods" id="mods"></div>
-
-      <div class="price">
-        <span class="amt">199</span><span class="cur">CHF</span>
-        <span class="mt">Einmalig · Lebenslanger Zugang</span>
-      </div>
-
+      <div class="price"><span class="amt">199</span><span class="cur">CHF</span><span class="mt">Einmalig · Lebenslanger Zugang</span></div>
       <a class="btn btn-lg" id="cta" href="#">Zur Makro Masterclass</a>
       <div class="trust"><span>6 Module</span><span>24 Lektionen</span><span>Auf Deutsch</span><span>Im eigenen Tempo</span></div>
     </div>
 
-    <div style="margin-top:1.8rem">
-      <button class="btn btn-ghost" id="again">Nochmal</button>
+    <div class="nav" style="margin-top:1.6rem">
+      <button class="btn btn-ghost btn-sm" id="again">Nochmal</button>
+      <button class="btn btn-ghost btn-sm" id="share">Ergebnis teilen</button>
     </div>
 
-    <p class="foot">
-      Wissenstest, keine Anlageberatung. Die Fragen behandeln volkswirtschaftliche Zusammenhänge,
-      keine Empfehlungen zum Kauf oder Verkauf.<br>
-      © 2026 ValueX · Fabian De Sanctis
-    </p>
+    <p class="foot">Wissenstest, keine Anlageberatung. Die Fragen behandeln volkswirtschaftliche
+      Zusammenhänge, keine Empfehlungen zum Kauf oder Verkauf.<br>© 2026 ValueX · Fabian De Sanctis</p>
   </section>
 
+</div>
+
+<div class="sticky" id="sticky">
+  <span class="lbl">Deine Lücke<b id="stg">0 Punkte</b></span>
+  <a class="btn btn-sm" id="cta2" href="#">Masterclass ansehen</a>
 </div>
 
 <script>
@@ -389,229 +392,295 @@ h1 .thin{color:var(--ink-3)}
 var SALESPAGE_URL = "https://valuex-invest.com/makro-masterclass";
 
 var Q = [
-{topic:"Geldschöpfung", mod:1, modName:"Der Preis von Geld",
+{t:"Geldschöpfung",m:1,mn:"Der Preis von Geld",
  q:"Wer schafft den grössten Teil des Geldes, das in einer Volkswirtschaft zirkuliert?",
- a:["Die Zentralbank, sie druckt es","Geschäftsbanken, wenn sie Kredite vergeben","Der Staat, über Anleihen","Der IWF"], c:1,
- why:"Nicht die Notenpresse. Rund 90 Prozent des Geldes entstehen, wenn eine Geschäftsbank einen Kredit vergibt. Sie verleiht nichts, was da ist. Sie schreibt es ins Konto. Die Zentralbank setzt nur den Preis dafür. Wer das nicht weiss, liest jede Fed-Meldung falsch."},
-
-{topic:"QE", mod:1, modName:"Der Preis von Geld",
+ a:["Die Zentralbank, sie druckt es","Geschäftsbanken, wenn sie Kredite vergeben","Der Staat, über Anleihen","Der IWF"],c:1,
+ w:"Nicht die Notenpresse. Rund 90 Prozent des Geldes entstehen, wenn eine Geschäftsbank einen Kredit vergibt. Sie verleiht nichts, was da ist. Sie schreibt es ins Konto. Die Zentralbank setzt nur den Preis dafür."},
+{t:"QE",m:1,mn:"Der Preis von Geld",
  q:"Bei QE schafft die Zentralbank neues Geld. Wo landet es?",
- a:["In der Wirtschaft, es treibt die Preise","Bei den Bürgern","Als Reserve auf den Zentralbankkonten der Banken","In fremden Währungen"], c:2,
- why:"Die Reserven können den Bankensektor gar nicht verlassen. Sie zirkulieren zwischen Banken und Zentralbank, sonst nirgends. Deshalb kam nach 2009 die grosse Inflation nicht, obwohl alle sie erwartet haben. Der Effekt läuft über Vermögenspreise, nicht über dein Portemonnaie."},
-
-{topic:"Realzins", mod:1, modName:"Der Preis von Geld",
+ a:["In der Wirtschaft, es treibt die Preise","Bei den Bürgern","Als Reserve auf den Zentralbankkonten der Banken","In fremden Währungen"],c:2,
+ w:"Die Reserven können den Bankensektor gar nicht verlassen. Deshalb kam nach 2009 die grosse Inflation nicht, obwohl alle sie erwartet haben. Der Effekt läuft über Vermögenspreise, nicht über dein Portemonnaie."},
+{t:"Realzins",m:1,mn:"Der Preis von Geld",
  q:"Leitzins 5 Prozent, Inflation 7 Prozent. Was heisst das für Bargeld?",
- a:["5 Prozent Ertrag","2 Prozent Verlust pro Jahr","Inflationsgeschützt","12 Prozent Realzins"], c:1,
- why:"Minus zwei. Nicht der Zins auf dem Papier entscheidet, sondern was nach Inflation übrig bleibt. Und genau diese Zahl treibt Gold, Bitcoin und lange Anleihen. Wenn der Realzins negativ ist, ist Halten von Cash eine garantierte Verlustposition. Dann sucht Kapital Knappheit."},
-
-{topic:"Anleihen", mod:2, modName:"Bonds & Repos",
+ a:["5 Prozent Ertrag","2 Prozent Verlust pro Jahr","Inflationsgeschützt","12 Prozent Realzins"],c:1,
+ w:"Minus zwei. Nicht der Zins auf dem Papier entscheidet, sondern was nach Inflation übrig bleibt. Wenn der Realzins negativ ist, ist Halten von Cash eine garantierte Verlustposition. Dann sucht Kapital Knappheit."},
+{t:"Anleihen",m:2,mn:"Bonds und Repos",
  q:"Die Zinsen steigen. Was passiert mit Anleihen, die schon im Umlauf sind?",
- a:["Sie steigen mit","Nichts, bis zur Fälligkeit","Ihr Kurs fällt","Kommt auf die Zentralbank an"], c:2,
- why:"Kurs und Rendite laufen gegeneinander. Deine 2-Prozent-Anleihe will keiner mehr, wenn es neue mit 5 gibt. Also fällt ihr Preis, bis sie wieder mithält. Je länger die Laufzeit, desto brutaler. Genau daran sind 2023 Regionalbanken in den USA zerbrochen."},
-
-{topic:"Repo", mod:2, modName:"Bonds & Repos",
+ a:["Sie steigen mit","Nichts, bis zur Fälligkeit","Ihr Kurs fällt","Kommt auf die Zentralbank an"],c:2,
+ w:"Kurs und Rendite laufen gegeneinander. Deine 2 Prozent Anleihe will keiner mehr, wenn es neue mit 5 gibt. Je länger die Laufzeit, desto brutaler. Genau daran sind 2023 Regionalbanken in den USA zerbrochen."},
+{t:"Repo",m:2,mn:"Bonds und Repos",
  q:"Was ist ein Repo?",
- a:["Kurzfristiger Kredit gegen Wertpapiere als Sicherheit","Ein Termingeschäft auf Zinsen","Eine Staatsanleihe","Ein Währungstausch der Zentralbanken"], c:0,
- why:"Übernachtkredit gegen Sicherheit. Klingt langweilig, ist das Rohrsystem des ganzen Finanzsystems, täglich mehrere Billionen. Wenn dort die Sätze ausschlagen wie im September 2019, fehlt irgendwo Geld. Das siehst du Wochen vor der Schlagzeile."},
-
-{topic:"Zinskurve", mod:2, modName:"Bonds & Repos",
+ a:["Kurzfristiger Kredit gegen Wertpapiere als Sicherheit","Ein Termingeschäft auf Zinsen","Eine Staatsanleihe","Ein Währungstausch der Zentralbanken"],c:0,
+ w:"Übernachtkredit gegen Sicherheit. Klingt langweilig, ist das Rohrsystem des ganzen Finanzsystems, täglich mehrere Billionen. Wenn dort die Sätze ausschlagen, fehlt irgendwo Geld. Das siehst du Wochen vor der Schlagzeile."},
+{t:"Zinskurve",m:2,mn:"Bonds und Repos",
  q:"Die Zinskurve invertiert. Wann kommt historisch die Rezession?",
- a:["Sofort","Während sie invertiert bleibt","Erst wenn sie sich wieder versteilert","Gar nicht zuverlässig"], c:2,
- why:"Die Inversion ist die Warnung, nicht das Ereignis. Sechs bis achtzehn Monate später wird es ernst, meist erst wenn die Kurve wieder auseinandergeht, weil die Zentralbank in die Schwäche hinein senkt. Wer beim Invertieren verkauft, verpasst oft die stärkste Phase."},
-
-{topic:"Eurodollar", mod:3, modName:"Der Dollar",
+ a:["Sofort","Während sie invertiert bleibt","Erst wenn sie sich wieder versteilert","Gar nicht zuverlässig"],c:2,
+ w:"Die Inversion ist die Warnung, nicht das Ereignis. Sechs bis achtzehn Monate später wird es ernst, meist erst wenn die Kurve wieder auseinandergeht. Wer beim Invertieren verkauft, verpasst oft die stärkste Phase."},
+{t:"Eurodollar",m:3,mn:"Der Dollar",
  q:"Was sind Eurodollar?",
- a:["Der Kurs EUR/USD","Dollar auf Konten ausserhalb der USA","Der Euro","Digitales Zentralbankgeld"], c:1,
- why:"Dollar ausserhalb des Bankensystem der USAs. Mit Europa hat der Name nur historisch zu tun. Dieser Markt ist grösser als das Dollarsystem in den USA selbst, und die Fed kontrolliert ihn nicht. Wer globale Dollarknappheit verstehen will, muss hier hinschauen, nicht auf die US-Geldmenge."},
-
-{topic:"Dollar", mod:3, modName:"Der Dollar",
+ a:["Der Kurs EUR/USD","Dollar auf Konten ausserhalb der USA","Der Euro","Digitales Zentralbankgeld"],c:1,
+ w:"Dollar ausserhalb des Bankensystems der USA. Mit Europa hat der Name nur historisch zu tun. Dieser Markt ist grösser als das Dollarsystem in den USA selbst, und die Fed kontrolliert ihn nicht."},
+{t:"Dollar",m:3,mn:"Der Dollar",
  q:"Finanzkrise, ausgelöst in den USA. Was macht der Dollar?",
- a:["Fällt, die Krise kommt ja von dort","Steigt gegen fast alles","Bleibt stabil","Koppelt an Gold"], c:1,
- why:"Er steigt. Auch wenn die USA das Problem sind. Die halbe Welt hat Schulden in Dollar, und wenn Sicherheiten wegbrechen, brauchen alle gleichzeitig Dollar für Nachschussforderungen. Ein steigender Dollar ist kein Vertrauensbeweis, sondern ein Stresssignal. Für Bitcoin meist Gegenwind."},
-
-{topic:"Geldmenge", mod:4, modName:"Inflation",
- q:"M2 stieg 2020 um über 25 Prozent. Warum kam die Inflation erst 2021/22?",
- a:["Die Statistik hinkt nach","Die Umlaufgeschwindigkeit brach zuerst ein","Geldmenge und Inflation hängen nicht zusammen","Die Fed hat korrigiert"], c:1,
- why:"Geld muss sich bewegen, sonst passiert nichts. Im Lockdown wurde gespart, die Umlaufgeschwindigkeit stürzte ab und hat den Mengeneffekt neutralisiert. Erst als die Nachfrage auf ein verknapptes Angebot traf, kamen die Preise. Menge mal Geschwindigkeit ist die Grösse, nicht die Menge."},
-
-{topic:"CPI", mod:4, modName:"Inflation",
+ a:["Fällt, die Krise kommt ja von dort","Steigt gegen fast alles","Bleibt stabil","Koppelt an Gold"],c:1,
+ w:"Er steigt. Die halbe Welt hat Schulden in Dollar, und wenn Sicherheiten wegbrechen, brauchen alle gleichzeitig Dollar. Ein steigender Dollar ist kein Vertrauensbeweis, sondern ein Stresssignal. Für Bitcoin meist Gegenwind."},
+{t:"Geldmenge",m:4,mn:"Inflation",
+ q:"M2 stieg 2020 um über 25 Prozent. Warum kam die Inflation erst 2021 und 2022?",
+ a:["Die Statistik hinkt nach","Die Umlaufgeschwindigkeit brach zuerst ein","Geldmenge und Inflation hängen nicht zusammen","Die Fed hat korrigiert"],c:1,
+ w:"Geld muss sich bewegen, sonst passiert nichts. Im Lockdown wurde gespart, die Umlaufgeschwindigkeit stürzte ab. Erst als die Nachfrage auf ein verknapptes Angebot traf, kamen die Preise. Menge mal Geschwindigkeit ist die Grösse."},
+{t:"CPI",m:4,mn:"Inflation",
  q:"Wohnkosten sind der grösste Posten im Verbraucherpreisindex der USA. Was ist das Problem?",
- a:["Sie werden nur jährlich erhoben","Sie bilden Mieten mit rund einem Jahr Verzögerung ab","Sie sind ausgenommen","Sie basieren auf Hausverkäufen"], c:1,
- why:"Ein Drittel des Index, geschätzt über laufende Mietverträge. Die passen sich erst bei Verlängerung an. Der Index zeigt dir also die Mieten von vor einem Jahr und meldet Inflation, die am Markt längst durch ist. Wer nur die Schlagzeile liest, ist systematisch zu spät."},
-
-{topic:"Schulden", mod:5, modName:"Makrodaten",
+ a:["Sie werden nur jährlich erhoben","Sie bilden Mieten mit rund einem Jahr Verzögerung ab","Sie sind ausgenommen","Sie basieren auf Hausverkäufen"],c:1,
+ w:"Ein Drittel des Index, geschätzt über laufende Mietverträge. Der Index zeigt dir die Mieten von vor einem Jahr und meldet Inflation, die am Markt längst durch ist. Wer nur die Schlagzeile liest, ist systematisch zu spät."},
+{t:"Schulden",m:5,mn:"Makrodaten",
  q:"Ab wann werden Staatsschulden bei eigener Währung wirklich gefährlich?",
- a:["Ab 100 Prozent der Wirtschaftsleistung","Wenn die Zinslast schneller wächst als die Wirtschaft","Wenn niemand die Anleihen mehr kauft","Bei einer Herabstufung"], c:1,
- why:"Die Quote allein sagt nichts. Japan liegt seit Jahrzehnten über 250 Prozent, ohne auszufallen. Entscheidend ist die Dynamik: Wächst die Zinslast schneller als die Wirtschaft, läuft es von selbst weiter und muss über Inflation aufgelöst werden. Das ist das Argument für Knappheit, langfristig."},
-
-{topic:"Liquidität", mod:5, modName:"Makrodaten",
+ a:["Ab 100 Prozent der Wirtschaftsleistung","Wenn die Zinslast schneller wächst als die Wirtschaft","Wenn niemand die Anleihen mehr kauft","Bei einer Herabstufung"],c:1,
+ w:"Die Quote allein sagt nichts. Japan liegt seit Jahrzehnten über 250 Prozent, ohne auszufallen. Entscheidend ist die Dynamik. Wächst die Zinslast schneller als die Wirtschaft, muss es über Inflation aufgelöst werden."},
+{t:"Liquidität",m:5,mn:"Makrodaten",
  q:"Welche Grösse läuft historisch am engsten mit Risikoanlagen?",
- a:["Die Bilanzsumme der Fed","Nettoliquidität: Bilanz der Fed minus Staatskonto minus Reverse Repo","Zinsschritte pro Jahr","Der Verbraucherpreisindex"], c:1,
- why:"Nicht wie gross die Bilanz ist, sondern wie viel davon im Markt ankommt. Füllt das Finanzministerium sein Konto oder parken Geldmarktfonds im Reverse Repo, ist die Liquidität gebunden. Bilanz bleibt gross, Wirkung weg. Diese Zahl erklärt Wendepunkte, die man sonst nicht sieht."}
+ a:["Die Bilanzsumme der Fed","Nettoliquidität: Bilanz der Fed minus Staatskonto minus Reverse Repo","Zinsschritte pro Jahr","Der Verbraucherpreisindex"],c:1,
+ w:"Nicht wie gross die Bilanz ist, sondern wie viel davon im Markt ankommt. Füllt das Finanzministerium sein Konto oder parken Geldmarktfonds im Reverse Repo, ist die Liquidität gebunden. Bilanz gross, Wirkung weg."}
 ];
 
 var $=function(s){return document.querySelector(s)};
-var st={i:0,ans:[]};
+var K=["A","B","C","D"];
+var st={i:0,ans:[],pick:null,phase:"pick"};   // pick | conf | feedback
 
-/* ---- Erfassung. Keine Namen, keine E-Mails, keine IP. Nur anonyme Zahlen. ---- */
-var TRACK_URL="track.php";
-var SID=(Date.now().toString(36)+Math.random().toString(36).slice(2,8));
-var T0=Date.now();
-function track(ev,data){
+/* ---- Erfassung. Nur anonyme Zahlen. ---- */
+var SID=(Date.now().toString(36)+Math.random().toString(36).slice(2,8)), T0=Date.now();
+function track(ev,d){
   try{
-    var body=JSON.stringify({sid:SID,ev:ev,t:Date.now()-T0,d:data||{}});
-    if(navigator.sendBeacon){navigator.sendBeacon(TRACK_URL,new Blob([body],{type:"application/json"}));}
-    else{fetch(TRACK_URL,{method:"POST",body:body,keepalive:true,headers:{"Content-Type":"application/json"}}).catch(function(){});}
+    var b=JSON.stringify({sid:SID,ev:ev,t:Date.now()-T0,d:d||{}});
+    if(navigator.sendBeacon)navigator.sendBeacon("track.php",new Blob([b],{type:"application/json"}));
+    else fetch("track.php",{method:"POST",body:b,keepalive:true,headers:{"Content-Type":"application/json"}}).catch(function(){});
   }catch(e){}
 }
 
 function show(id){
-  var v=document.querySelectorAll(".view");
-  for(var k=0;k<v.length;k++)v[k].classList.remove("on");
-  $(id).classList.add("on");window.scrollTo({top:0,behavior:"smooth"});
+  document.querySelectorAll(".view").forEach(function(v){v.classList.remove("on")});
+  $(id).classList.add("on");
+  window.scrollTo({top:0,behavior:"auto"});
 }
+
+function dots(){
+  var d=$("#dots");d.innerHTML="";
+  for(var k=0;k<Q.length;k++){
+    var i=document.createElement("i");
+    if(k<st.i)i.className="done";else if(k===st.i)i.className="now";
+    d.appendChild(i);
+  }
+}
+
+function score(){var n=0;st.ans.forEach(function(a,i){if(a.p===Q[i].c)n++});return n}
 
 function render(){
   var q=Q[st.i];
-  $("#qnum").textContent=st.i+1;
-  $("#fill").style.width=(st.i/Q.length*100)+"%";
-  $("#qtopic").textContent=q.topic;
-  $("#qmod").textContent="Modul "+q.mod;
-  $("#qtext").textContent=q.q;
+  st.phase="pick";st.pick=null;
+  $("#qn").textContent=st.i+1;
+  $("#sc").textContent=score();
+  dots();
+  $("#qtop").textContent=q.t+" · Modul "+q.m;
+  $("#qtxt").textContent=q.q;
+
   var box=$("#opts");box.innerHTML="";
-  var K=["A","B","C","D"];
-  q.a.forEach(function(t,i){
+  q.a.forEach(function(txt,i){
     var b=document.createElement("button");
-    b.className="opt";b.type="button";b.setAttribute("aria-pressed","false");
-    b.innerHTML='<span class="key">'+K[i]+'</span><span>'+t+'</span>';
-    b.addEventListener("click",function(){pick(i)});
+    b.type="button";b.className="opt";b.setAttribute("aria-pressed","false");
+    b.innerHTML='<span class="k">'+K[i]+'</span><span class="txt">'+txt+'</span>';
+    b.addEventListener("click",function(){choose(i)});
     box.appendChild(b);
   });
+
   $("#conf").hidden=true;
+  $("#fbwrap").hidden=true;
+  $("#qwrap").style.animation="none";void $("#qwrap").offsetWidth;$("#qwrap").style.animation="";
+  $("#back").style.visibility = st.i>0 ? "visible" : "hidden";
 }
 
-function pick(i){
-  var b=$("#opts").querySelectorAll(".opt");
-  for(var k=0;k<b.length;k++)b[k].setAttribute("aria-pressed",k===i?"true":"false");
-  st.pending=i;$("#conf").hidden=false;
-  $("#conf").scrollIntoView({behavior:"smooth",block:"nearest"});
+function choose(i){
+  if(st.phase!=="pick")return;
+  st.pick=i;st.phase="conf";
+  $("#opts").querySelectorAll(".opt").forEach(function(b,k){
+    b.setAttribute("aria-pressed",k===i?"true":"false");
+  });
+  $("#conf").hidden=false;
+  $("#live").textContent="Antwort "+K[i]+" gewählt. Jetzt Sicherheit angeben.";
 }
 
-$("#conf").addEventListener("click",function(e){
-  var b=e.target.closest(".conf-btn");
-  if(!b||st.pending===undefined)return;
-  var qq=Q[st.i];
-  track("answer",{q:st.i,pick:st.pending,ok:st.pending===qq.c?1:0,conf:+b.dataset.c,mod:qq.mod});
-  st.ans.push({p:st.pending,c:+b.dataset.c});st.pending=undefined;st.i++;
-  if(st.i<Q.length)render();else finish();
+function confirmConf(c){
+  if(st.phase!=="conf"||st.pick===null)return;
+  var q=Q[st.i],ok=st.pick===q.c;
+  st.ans[st.i]={p:st.pick,c:c};
+  st.phase="feedback";
+  track("answer",{q:st.i,pick:st.pick,ok:ok?1:0,conf:c,mod:q.m});
+
+  $("#conf").hidden=true;
+  $("#opts").querySelectorAll(".opt").forEach(function(b,k){
+    b.disabled=true;b.setAttribute("aria-pressed","false");
+    if(k===q.c)b.classList.add("is-right");
+    else if(k===st.pick)b.classList.add("is-wrong");
+    else b.classList.add("is-mute");
+  });
+
+  var fb=$("#fb");
+  fb.className="fb"+(ok?" ok":"");
+  $("#fbm").textContent=ok?"✓":"✕";
+  $("#fbt").textContent=ok?"Richtig.":"Daneben.";
+  var sting="";
+  if(!ok&&c===95)sting="Todsicher. Und daneben.";
+  else if(!ok&&c===70)sting="Ziemlich sicher gewesen.";
+  else if(ok&&c===25)sting="Geraten und getroffen.";
+  $("#fbs").textContent=sting;
+  $("#fbw").textContent=q.w;
+
+  $("#fbwrap").hidden=false;
+  $("#sc").textContent=score();
+  $("#live").textContent=(ok?"Richtig. ":"Falsch. Richtig ist "+K[q.c]+". ")+q.w;
+  $("#next").textContent = st.i===Q.length-1 ? "Ergebnis ansehen" : "Weiter";
+  $("#next").focus({preventScroll:true});
+  $("#fb").scrollIntoView({behavior:"smooth",block:"nearest"});
+}
+
+function next(){
+  if(st.phase!=="feedback")return;
+  if(st.i<Q.length-1){st.i++;render();window.scrollTo({top:0,behavior:"smooth"})}
+  else finish();
+}
+function back(){
+  if(st.i===0)return;
+  st.i--;st.ans.length=st.i;render();window.scrollTo({top:0,behavior:"smooth"});
+}
+
+/* ---------- Tastatur ---------- */
+document.addEventListener("keydown",function(e){
+  if(!$("#v-quiz").classList.contains("on"))return;
+  var k=e.key.toLowerCase();
+  if(st.phase==="pick"){
+    var i=["1","2","3","4"].indexOf(k);
+    if(i<0)i=["a","b","c","d"].indexOf(k);
+    if(i>=0){e.preventDefault();choose(i)}
+  }else if(st.phase==="conf"){
+    var c=["1","2","3"].indexOf(k);
+    if(c>=0){e.preventDefault();confirmConf([25,70,95][c])}
+  }else if(st.phase==="feedback"){
+    if(k==="enter"||k===" "){e.preventDefault();next()}
+  }
+  if(k==="arrowleft"&&st.i>0){e.preventDefault();back()}
 });
 
+/* ---------- Ergebnis ---------- */
 function finish(){
   var ok=0,cs=0,bm={};
   st.ans.forEach(function(a,i){
-    var q=Q[i],r=a.p===q.c;
-    if(r)ok++;cs+=a.c;
-    if(!bm[q.mod])bm[q.mod]={n:q.modName,ok:0,t:0};
-    bm[q.mod].t++;if(r)bm[q.mod].ok++;
+    var q=Q[i],r=a.p===q.c;if(r)ok++;cs+=a.c;
+    if(!bm[q.m])bm[q.m]={n:q.mn,ok:0,t:0};
+    bm[q.m].t++;if(r)bm[q.m].ok++;
   });
   var n=Q.length,real=Math.round(ok/n*100),self=Math.round(cs/n),gap=self-real;
 
-  $("#ringnum").textContent=ok+"/"+n;
+  $("#rn").textContent=ok+"/"+n;
   setTimeout(function(){$("#ring").style.strokeDashoffset=326.7-(ok/n)*326.7},150);
 
   var h,p;
-  if(ok<=4){
-    h="Du liest News. Du liest nicht den Markt.";
-    p="Das liegt nicht an dir. Diese Zusammenhänge erklärt dir niemand, sie werden vorausgesetzt. Du hast Fragmente gesammelt. Kein Gerüst.";
-  }else if(ok<=7){
-    h="Halbwissen. Die teuerste Stufe.";
-    p="Du kennst die Begriffe. Bei der Mechanik dahinter bricht es weg. Genau da entstehen die Fehler, die Geld kosten. Weil du dich sicher genug fühlst, um zu handeln.";
-  }else if(ok<=10){
-    h="Ein Fundament ist da. Es hat Löcher.";
-    p="Die Fragen, die du verpasst hast, sind kein Zufall. Sie zeigen, wo dein Raster ausfranst. Meist genau dort, wo der Markt dreht.";
-  }else{
-    h="Das können wenige.";
-    p="Du kennst nicht nur die Begriffe, sondern die Mechanik. Schau trotzdem auf die Lücke unten. Auch bei starkem Wissen liegt das Gefühl oft daneben.";
-  }
+  if(ok<=4){h="Du liest News. Du liest nicht den Markt.";
+    p="Das liegt nicht an dir. Diese Zusammenhänge erklärt dir niemand, sie werden vorausgesetzt. Du hast Fragmente gesammelt. Kein Gerüst.";}
+  else if(ok<=7){h="Halbwissen. Die teuerste Stufe.";
+    p="Du kennst die Begriffe. Bei der Mechanik dahinter bricht es weg. Genau da entstehen die Fehler, die Geld kosten. Weil du dich sicher genug fühlst, um zu handeln.";}
+  else if(ok<=10){h="Ein Fundament ist da. Es hat Löcher.";
+    p="Die Fragen, die du verpasst hast, sind kein Zufall. Sie zeigen, wo dein Raster ausfranst. Meist genau dort, wo der Markt dreht.";}
+  else{h="Das können wenige.";
+    p="Du kennst nicht nur die Begriffe, sondern die Mechanik. Schau trotzdem auf die Lücke unten.";}
   $("#vh").textContent=h;$("#vp").textContent=p;
 
-  $("#self-n").textContent=self+" %";$("#real-n").textContent=real+" %";
-  setTimeout(function(){$("#self-bar").style.width=self+"%";$("#real-bar").style.width=real+"%"},280);
+  $("#sn").textContent=self+" %";$("#rnn").textContent=real+" %";
+  setTimeout(function(){$("#sb").style.width=self+"%";$("#rb").style.width=real+"%"},280);
 
-  if(gap>=12){
-    $("#gap-n").textContent=gap+" Punkte";
-    $("#gap-t").textContent="So weit lag dein Gefühl über deinem Wissen. Das ist der eigentliche Befund, nicht die Punktzahl. Wer sich sicher fühlt, prüft nicht mehr nach.";
-  }else if(gap<=-12){
-    $("#gap-n").textContent=Math.abs(gap)+" Punkte";
-    $("#gap-t").textContent="Du hast dich unterschätzt. Du weisst mehr, als du dir zutraust. Angenehmere Richtung. Kostet dich aber Entschlossenheit, wenn es zählt.";
-  }else{
-    $("#gap-n").textContent="±"+Math.abs(gap)+" Punkte";
-    $("#gap-t").textContent="Gefühl und Wissen decken sich. Das ist selten. Du weisst, was du weisst. Und was nicht.";
-  }
+  if(gap>=12){$("#gn").textContent=gap+" Punkte";
+    $("#gt").textContent="So weit lag dein Gefühl über deinem Wissen. Das ist der eigentliche Befund, nicht die Punktzahl. Wer sich sicher fühlt, prüft nicht mehr nach.";}
+  else if(gap<=-12){$("#gn").textContent=Math.abs(gap)+" Punkte";
+    $("#gt").textContent="Du hast dich unterschätzt. Du weisst mehr, als du dir zutraust. Kostet dich Entschlossenheit, wenn es zählt.";}
+  else{$("#gn").textContent="±"+Math.abs(gap)+" Punkte";
+    $("#gt").textContent="Gefühl und Wissen decken sich. Das ist selten. Du weisst, was du weisst. Und was nicht.";}
+  $("#stg").textContent=(gap>0?"+":"")+gap+" Punkte";
 
   var tb=$("#topics");tb.innerHTML="";var weak=[];
   Object.keys(bm).sort().forEach(function(m){
-    var d=bm[m],pct=d.ok/d.t*100;
-    if(pct<80)weak.push(+m);
-    var e=document.createElement("div");
-    e.className="topic"+(pct<80?" weak":"");
+    var d=bm[m],pc=d.ok/d.t*100;if(pc<80)weak.push(+m);
+    var e=document.createElement("div");e.className="topic"+(pc<80?" weak":"");
     e.innerHTML='<span class="md">M0'+m+'</span><span class="nm">'+d.n+'</span><span class="vl">'+d.ok+'/'+d.t+'</span>';
     tb.appendChild(e);
   });
 
-  var rb=$("#review");rb.innerHTML="";var K=["A","B","C","D"];
+  var rb=$("#review");rb.innerHTML="";
   st.ans.forEach(function(a,i){
     var q=Q[i],r=a.p===q.c;
-    var d=document.createElement("details");
-    d.className="rev "+(r?"right":"wrong");
+    var d=document.createElement("details");d.className="rev "+(r?"right":"wrong");
     d.innerHTML='<summary><span class="mk">'+(r?"✓":"✕")+'</span><span>'+q.q+'</span></summary>'+
-      '<div class="rev-body">'+
-      (r?'':'<p class="ln you">Du: <s>'+q.a[a.p]+'</s></p>')+
-      '<p class="ln sol">Richtig: <b>'+q.a[q.c]+'</b></p>'+
-      '<p class="why">'+q.why+'</p></div>';
+      '<div class="rev-b">'+(r?'':'<p class="ln">Du: '+q.a[a.p]+'</p>')+
+      '<p class="ln">Richtig: <b>'+q.a[q.c]+'</b></p><p class="why">'+q.w+'</p></div>';
     rb.appendChild(d);
   });
 
-  var M=[
-    {n:1,t:"Der Preis von Geld"},{n:2,t:"Bonds & Repos"},{n:3,t:"Der Dollar"},
-    {n:4,t:"Inflation"},{n:5,t:"Makrodaten"},{n:6,t:"Liquidität"}
-  ];
+  var M=[{n:1,t:"Der Preis von Geld"},{n:2,t:"Bonds und Repos"},{n:3,t:"Der Dollar"},
+         {n:4,t:"Inflation"},{n:5,t:"Makrodaten"},{n:6,t:"Liquidität"}];
   var mb=$("#mods");mb.innerHTML="";
   M.forEach(function(m){
     var hit=weak.indexOf(m.n)>-1;
-    var e=document.createElement("div");
-    e.className="mod"+(hit?" hit":"");
+    var e=document.createElement("div");e.className="mod"+(hit?" hit":"");
     e.innerHTML='<span class="n">M0'+m.n+'</span><span>'+m.t+'</span>'+(hit?'<span class="fl">deine Lücke</span>':'');
     mb.appendChild(e);
   });
 
-  var ph,pp;
   if(weak.length===0){
-    ph="Du hast das Raster. Jetzt das Zusammenspiel.";
-    pp="Einzeln sitzt bei dir alles. Die Masterclass zeigt dir, wie Liquidität, Dollar und Realzins zusammen den Zyklus takten. Und woran du Wendepunkte erkennst, bevor sie in den Schlagzeilen stehen.";
+    $("#ph").textContent="Du hast das Raster. Jetzt das Zusammenspiel.";
+    $("#pp").textContent="Einzeln sitzt bei dir alles. Die Masterclass zeigt dir, wie Liquidität, Dollar und Realzins zusammen den Zyklus takten. Und woran du Wendepunkte erkennst, bevor sie in den Schlagzeilen stehen.";
   }else if(weak.length<=2){
-    ph="Du hast jetzt schwarz auf weiss, wo es fehlt.";
-    pp="Dein Fundament steht. Zwei Bereiche tragen noch nicht, oben markiert. Genau die schliesst du hier, ohne bei null anzufangen.";
+    $("#ph").textContent="Du hast jetzt schwarz auf weiss, wo es fehlt.";
+    $("#pp").textContent="Dein Fundament steht. Zwei Bereiche tragen noch nicht, oben markiert. Genau die schliesst du hier, ohne bei null anzufangen.";
   }else{
-    ph="Du hast jetzt schwarz auf weiss, wo es fehlt.";
-    pp="Mehrere Bereiche tragen nicht, oben markiert. Die Masterclass baut sie in der richtigen Reihenfolge auf. Erst wie Geld entsteht. Dann wie es sich bewegt. Dann was das für Bitcoin heisst. Als System, nicht als Begriffssammlung.";
+    $("#ph").textContent="Du hast jetzt schwarz auf weiss, wo es fehlt.";
+    $("#pp").textContent="Mehrere Bereiche tragen nicht, oben markiert. Die Masterclass baut sie in der richtigen Reihenfolge auf. Erst wie Geld entsteht. Dann wie es sich bewegt. Dann was das für Bitcoin heisst.";
   }
-  $("#ph").textContent=ph;$("#pp").textContent=pp;
 
   var u=SALESPAGE_URL;
-  u+=(u.indexOf("?")>-1?"&":"?")+"utm_source=quiz&utm_medium=email&utm_campaign=makro-test&score="+ok;
-  $("#cta").href=u;
+  u+=(u.indexOf("?")>-1?"&":"?")+"utm_source=quiz&utm_medium=email&utm_campaign=makrotest&score="+ok;
+  $("#cta").href=u;$("#cta2").href=u;
 
+  st.res={ok:ok,gap:gap,self:self,real:real};
   track("done",{score:ok,self:self,real:real,gap:gap,weak:weak.join(",")});
   show("#v-result");
+
+  var sticky=$("#sticky");
+  var io=new IntersectionObserver(function(en){
+    en.forEach(function(e){sticky.classList.toggle("on",!e.isIntersecting)});
+  },{rootMargin:"-70% 0px 0px 0px"});
+  io.observe($("#cta"));
+  setTimeout(function(){sticky.classList.add("on")},1400);
 }
 
-$("#cta").addEventListener("click",function(){track("cta",{})});
+/* ---------- Steuerung ---------- */
+$("#conf").addEventListener("click",function(e){
+  var b=e.target.closest(".cbtn");if(b)confirmConf(+b.dataset.c);
+});
+$("#next").addEventListener("click",next);
+$("#back").addEventListener("click",back);
 $("#start").addEventListener("click",function(){track("start",{});render();show("#v-quiz")});
+$("#cta").addEventListener("click",function(){track("cta",{})});
+$("#cta2").addEventListener("click",function(){track("cta",{})});
 $("#again").addEventListener("click",function(){
-  st={i:0,ans:[]};$("#ring").style.strokeDashoffset=326.7;
-  $("#self-bar").style.width="0";$("#real-bar").style.width="0";
+  st={i:0,ans:[],pick:null,phase:"pick"};
+  $("#ring").style.strokeDashoffset=326.7;$("#sb").style.width="0";$("#rb").style.width="0";
+  $("#sticky").classList.remove("on");
   render();show("#v-quiz");
+});
+$("#share").addEventListener("click",function(){
+  var r=st.res||{ok:0,gap:0};
+  var txt="Makrotest: "+r.ok+" von 12 richtig. Meine Selbsteinschätzung lag "+
+    (r.gap>0?r.gap+" Punkte darüber":"nah dran")+". "+location.href;
+  if(navigator.share){navigator.share({text:txt}).catch(function(){});}
+  else if(navigator.clipboard){navigator.clipboard.writeText(txt).then(function(){
+    var b=$("#share"),o=b.textContent;b.textContent="Kopiert";setTimeout(function(){b.textContent=o},1600);
+  });}
 });
 })();
 </script>
